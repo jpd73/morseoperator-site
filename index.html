@@ -4,7 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Morse Operator — Learn Morse Code, WWII Style</title>
-  <meta name="description" content="Master Morse code through a WWII-themed training program. Graduate Boot Camp, complete missions, and climb the ranks.">
+  <meta name="description" content="Master Morse code through an immersive WWII training program. 5 game modes, 21 military ranks. Completely free.">
+  <meta property="og:title" content="Morse Operator — Learn Morse Code, WWII Style">
+  <meta property="og:description" content="Enlist in the Signal Corps. Master Morse code through authentic WWII missions. Free, no ads.">
+  <meta property="og:type" content="website">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
   <style>
@@ -14,100 +17,398 @@
       background: #0a0e06;
       color: #e8dcc8;
       font-family: 'Source Code Pro', monospace;
-      line-height: 1.6;
+      line-height: 1.7;
+      overflow-x: hidden;
     }
 
-    header {
+    /* ── HERO ── */
+    .hero {
       text-align: center;
-      padding: 60px 20px 40px;
-      border-bottom: 1px solid #3a4a22;
+      padding: 80px 20px 60px;
+      position: relative;
     }
 
-    header h1 {
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 10%;
+      right: 10%;
+      height: 1px;
+      background: linear-gradient(to right, transparent, #3a4a22, transparent);
+    }
+
+    .hero h1 {
       font-family: 'Special Elite', cursive;
-      font-size: 2.8rem;
+      font-size: 3.2rem;
       color: #c8922a;
+      letter-spacing: 4px;
+      margin-bottom: 8px;
+    }
+
+    .hero .subtitle {
+      font-size: 0.8rem;
+      color: #9a8e78;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+    }
+
+    .hero .tagline {
+      font-size: 1.25rem;
+      color: #e8dcc8;
+      margin: 28px auto 0;
+      max-width: 560px;
+      line-height: 1.8;
+    }
+
+    .hero .tagline em {
+      color: #c8922a;
+      font-style: normal;
+    }
+
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 36px;
+      flex-wrap: wrap;
+    }
+
+    .hero-stats .stat {
+      text-align: center;
+    }
+
+    .hero-stats .stat-number {
+      font-family: 'Special Elite', cursive;
+      font-size: 1.8rem;
+      color: #c8922a;
+      display: block;
+    }
+
+    .hero-stats .stat-label {
+      font-size: 0.7rem;
+      color: #9a8e78;
+      text-transform: uppercase;
       letter-spacing: 2px;
     }
 
-    header p.subtitle {
-      font-size: 0.85rem;
-      color: #9a8e78;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      margin-top: 8px;
+    .cta-group {
+      margin-top: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
     }
 
-    header p.tagline {
-      font-size: 1.1rem;
-      color: #e8dcc8;
-      margin-top: 20px;
-      max-width: 500px;
-      margin-left: auto;
-      margin-right: auto;
+    .cta-group .app-badge img {
+      height: 54px;
+      transition: transform 0.2s ease;
     }
 
-    .app-badge {
-      margin-top: 30px;
+    .cta-group .app-badge img:hover {
+      transform: scale(1.05);
     }
 
-    .app-badge img {
-      height: 50px;
+    .cta-group .free-note {
+      font-size: 0.75rem;
+      color: #7a8e58;
+      letter-spacing: 1px;
     }
 
-    main {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 50px 20px;
+    /* ── HERO SCREENSHOTS ── */
+    .hero-phones {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      gap: 20px;
+      margin-top: 50px;
+      perspective: 800px;
     }
 
+    .hero-phones img {
+      border-radius: 20px;
+      border: 2px solid #2a3518;
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
+    }
+
+    .hero-phones .phone-center {
+      width: 240px;
+      z-index: 2;
+    }
+
+    .hero-phones .phone-side {
+      width: 190px;
+      opacity: 0.7;
+      transform: scale(0.9);
+    }
+
+    .hero-phones .phone-left {
+      transform: scale(0.9) rotateY(8deg);
+    }
+
+    .hero-phones .phone-right {
+      transform: scale(0.9) rotateY(-8deg);
+    }
+
+    /* ── SECTIONS (shared) ── */
     section {
-      margin-bottom: 50px;
+      padding: 70px 20px;
+      position: relative;
+    }
+
+    section::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 10%;
+      right: 10%;
+      height: 1px;
+      background: linear-gradient(to right, transparent, #3a4a22, transparent);
+    }
+
+    .section-inner {
+      max-width: 900px;
+      margin: 0 auto;
     }
 
     h2 {
       font-family: 'Special Elite', cursive;
-      font-size: 1.5rem;
+      font-size: 1.8rem;
       color: #c8922a;
-      margin-bottom: 16px;
-      letter-spacing: 1px;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+    }
+
+    .section-subtitle {
+      font-size: 0.75rem;
+      color: #9a8e78;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 24px;
     }
 
     p {
-      color: #e8dcc8;
-      margin-bottom: 12px;
-      font-size: 0.95rem;
+      color: #c8bfa8;
+      margin-bottom: 14px;
+      font-size: 0.92rem;
     }
 
-    .missions {
+    /* ── BOOT CAMP ── */
+    .bootcamp-section {
+      background: linear-gradient(180deg, #0d1208 0%, #0a0e06 100%);
+    }
+
+    .bootcamp-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .bootcamp-text .phase-list {
       list-style: none;
       padding: 0;
+      margin-top: 20px;
     }
 
-    .missions li {
-      background: #141a0c;
-      border: 1px solid #3a4a22;
-      border-left: 3px solid #c8922a;
-      padding: 16px 20px;
-      margin-bottom: 12px;
-      border-radius: 4px;
+    .bootcamp-text .phase-list li {
+      padding: 10px 0;
+      border-bottom: 1px solid #1a2210;
+      font-size: 0.88rem;
+      color: #c8bfa8;
     }
 
-    .missions li strong {
+    .bootcamp-text .phase-list li strong {
       color: #e8b84a;
+      font-size: 0.75rem;
+      letter-spacing: 1px;
     }
 
-    .missions li span {
+    .bootcamp-phone {
+      text-align: center;
+    }
+
+    .bootcamp-phone img {
+      width: 260px;
+      border-radius: 20px;
+      border: 2px solid #2a3518;
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    /* ── MISSIONS ── */
+    .missions-section {
+      background: linear-gradient(180deg, #0a0e06 0%, #0d1208 100%);
+    }
+
+    .missions-section .section-inner {
+      text-align: center;
+    }
+
+    .mission-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 32px;
+    }
+
+    .mission-card {
+      background: #111808;
+      border: 1px solid #2a3518;
+      border-radius: 8px;
+      overflow: hidden;
+      text-align: left;
+      transition: border-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .mission-card:hover {
+      border-color: #c8922a;
+      transform: translateY(-3px);
+    }
+
+    .mission-card img {
+      width: 100%;
+      display: block;
+      border-bottom: 1px solid #2a3518;
+    }
+
+    .mission-card-body {
+      padding: 20px;
+    }
+
+    .mission-card-body h3 {
+      font-family: 'Special Elite', cursive;
+      font-size: 1.15rem;
+      color: #e8b84a;
+      margin-bottom: 4px;
+    }
+
+    .mission-card-body .mission-type {
+      font-size: 0.65rem;
+      color: #7a8e58;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 10px;
+    }
+
+    .mission-card-body p {
+      font-size: 0.82rem;
       color: #9a8e78;
-      font-size: 0.85rem;
+      margin-bottom: 0;
+      line-height: 1.6;
     }
 
+    /* ── RANK PROGRESSION ── */
+    .rank-section {
+      background: linear-gradient(180deg, #0d1208 0%, #0a0e06 100%);
+    }
+
+    .rank-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .rank-phone {
+      text-align: center;
+    }
+
+    .rank-phone img {
+      width: 260px;
+      border-radius: 20px;
+      border: 2px solid #2a3518;
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .rank-highlights {
+      list-style: none;
+      padding: 0;
+      margin-top: 20px;
+    }
+
+    .rank-highlights li {
+      padding: 12px 0;
+      border-bottom: 1px solid #1a2210;
+      font-size: 0.88rem;
+      color: #c8bfa8;
+    }
+
+    .rank-highlights li strong {
+      color: #c8922a;
+    }
+
+    /* ── SELLING POINTS ── */
+    .selling-section {
+      background: #0d1208;
+    }
+
+    .selling-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-top: 32px;
+    }
+
+    .selling-card {
+      text-align: center;
+      padding: 28px 20px;
+      border: 1px solid #1a2210;
+      border-radius: 8px;
+      background: #0a0e06;
+    }
+
+    .selling-card .selling-icon {
+      font-size: 1.6rem;
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .selling-card h3 {
+      font-family: 'Special Elite', cursive;
+      font-size: 1.05rem;
+      color: #e8b84a;
+      margin-bottom: 8px;
+    }
+
+    .selling-card p {
+      font-size: 0.8rem;
+      color: #9a8e78;
+      margin-bottom: 0;
+    }
+
+    /* ── FINAL CTA ── */
+    .final-cta {
+      text-align: center;
+      padding: 80px 20px;
+      background: linear-gradient(180deg, #0a0e06 0%, #0d1208 50%, #0a0e06 100%);
+    }
+
+    .final-cta::after {
+      display: none;
+    }
+
+    .final-cta h2 {
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+
+    .final-cta p {
+      max-width: 480px;
+      margin: 0 auto 32px;
+      color: #9a8e78;
+    }
+
+    .final-cta .cta-group {
+      margin-top: 0;
+    }
+
+    /* ── FOOTER ── */
     footer {
       text-align: center;
       padding: 40px 20px;
-      border-top: 1px solid #3a4a22;
+      border-top: 1px solid #1a2210;
       color: #9a8e78;
-      font-size: 0.8rem;
+      font-size: 0.75rem;
     }
 
     footer a {
@@ -119,63 +420,245 @@
       color: #e8b84a;
     }
 
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.4rem; }
+      .hero .tagline { font-size: 1.05rem; }
+
+      .hero-phones .phone-side { display: none; }
+      .hero-phones .phone-center { width: 220px; }
+
+      .bootcamp-layout,
+      .rank-layout {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .bootcamp-phone,
+      .rank-phone {
+        order: -1;
+      }
+
+      .bootcamp-phone img,
+      .rank-phone img {
+        width: 200px;
+      }
+
+      .mission-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .selling-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
     @media (max-width: 480px) {
-      header h1 { font-size: 2rem; }
-      header p.tagline { font-size: 1rem; }
+      .hero h1 { font-size: 1.8rem; letter-spacing: 2px; }
+      .hero-stats { gap: 24px; }
+      .hero-stats .stat-number { font-size: 1.4rem; }
+      h2 { font-size: 1.5rem; }
     }
   </style>
 </head>
 <body>
 
-<header>
+<!-- ══════════════════════ HERO ══════════════════════ -->
+<section class="hero">
   <h1>MORSE OPERATOR</h1>
   <p class="subtitle">Signal Corps &middot; 1939&ndash;1945</p>
-  <p class="tagline">Master Morse code through a WWII-themed training program. Graduate Boot Camp, complete missions, and climb the ranks from Recruit to General.</p>
-  <div class="app-badge">
-    <!-- Replace with actual App Store link once published -->
-    <a href="#">
+  <p class="tagline">
+    Learn <em>Morse code</em> through an immersive WWII training program.
+    Tap a telegraph key, decode wartime transmissions, and rise through the ranks
+    from Recruit to General.
+  </p>
+
+  <div class="hero-stats">
+    <div class="stat">
+      <span class="stat-number">14</span>
+      <span class="stat-label">Lessons</span>
+    </div>
+    <div class="stat">
+      <span class="stat-number">4</span>
+      <span class="stat-label">Game Modes</span>
+    </div>
+    <div class="stat">
+      <span class="stat-number">21</span>
+      <span class="stat-label">Military Ranks</span>
+    </div>
+    <div class="stat">
+      <span class="stat-number">$0</span>
+      <span class="stat-label">Free</span>
+    </div>
+  </div>
+
+  <div class="cta-group">
+    <!-- Replace href with actual App Store link once published -->
+    <a class="app-badge" href="#">
       <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store">
     </a>
+    <span class="free-note">Free. No ads. No in-app purchases.</span>
   </div>
-</header>
 
-<main>
-  <section>
-    <h2>Boot Camp</h2>
-    <p>14 progressive lessons covering all 26 letters and 10 numbers. Each lesson includes drills, field exercises, and a Morse Match minigame. Pass the Final Exam to unlock missions.</p>
-  </section>
+  <div class="hero-phones">
+    <img class="phone-side phone-left" src="photos/1290x2796/1290x2796_0005_SS_RadioOp.png" alt="Radio Operator mission">
+    <img class="phone-center" src="photos/1290x2796/1290x2796_0007_SS_Homescreen.png" alt="Morse Operator home screen">
+    <img class="phone-side phone-right" src="photos/1290x2796/1290x2796_0003_SS_Intercept.png" alt="Code Breaker mission">
+  </div>
+</section>
 
-  <section>
+<!-- ══════════════════════ BOOT CAMP ══════════════════════ -->
+<section class="bootcamp-section">
+  <div class="section-inner">
+    <div class="bootcamp-layout">
+      <div class="bootcamp-text">
+        <h2>Boot Camp</h2>
+        <p class="section-subtitle">From zero to fluent</p>
+        <p>
+          No prior knowledge required. 14 structured lessons teach you every letter
+          and number through hands-on drills with a realistic telegraph key.
+          Each lesson builds on the last &mdash; by graduation, you'll be decoding
+          full sentences in real time.
+        </p>
+        <ul class="phase-list">
+          <li><strong>LEARN</strong> &mdash; See and hear each character's dot-dash pattern</li>
+          <li><strong>DRILL</strong> &mdash; Practice sending characters on the telegraph key with instant feedback</li>
+          <li><strong>FIELD EXERCISE</strong> &mdash; Decode full words using everything you've learned</li>
+          <li><strong>FINAL EXAM</strong> &mdash; A 3-phase cumulative test to earn your graduation</li>
+        </ul>
+      </div>
+      <div class="bootcamp-phone">
+        <img src="photos/1290x2796/1290x2796_0000_SS_Bootcamp2.png" alt="Boot Camp training drill" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ MISSIONS ══════════════════════ -->
+<section class="missions-section">
+  <div class="section-inner">
     <h2>4 Mission Types</h2>
-    <ul class="missions">
-      <li>
-        <strong>Radio Operator</strong> <span>TRANSMIT</span><br>
-        Transmit written messages letter-by-letter in Morse code across three difficulty tiers.
-      </li>
-      <li>
-        <strong>Code Breaker</strong> <span>INTERCEPT</span><br>
-        Crack a 5-letter word transmitted in Morse with 5 attempts.
-      </li>
-      <li>
-        <strong>Explosive Ordnance</strong> <span>BOMB DISPOSAL</span><br>
-        Defuse multi-stage bombs by decoding Morse clues under time pressure.
-      </li>
-      <li>
-        <strong>Signal Overflow</strong> <span>SURVIVE</span><br>
-        Real-time endurance mode where outgoing messages queue faster and faster. Earn power-ups to survive.
-      </li>
-    </ul>
-  </section>
+    <p class="section-subtitle">Every mode, a different challenge</p>
+    <p style="text-align:center; max-width:600px; margin:0 auto 8px;">
+      Graduate Boot Camp and your real deployment begins. Four distinct game modes
+      test speed, accuracy, and nerve &mdash; each inspired by actual wartime radio operations.
+    </p>
 
-  <section>
-    <h2>Rank Progression</h2>
-    <p>Earn XP from missions and advance through military ranks. Track your accuracy, speed, and performance across all game modes in your Service Record.</p>
-  </section>
-</main>
+    <div class="mission-grid">
+      <div class="mission-card">
+        <img src="photos/1290x2796/1290x2796_0005_SS_RadioOp.png" alt="Radio Operator" loading="lazy">
+        <div class="mission-card-body">
+          <h3>Radio Operator</h3>
+          <div class="mission-type">Transmit</div>
+          <p>Decode authentic WWII dispatches letter-by-letter using a telegraph key.
+             Three difficulty tiers &mdash; from routine traffic to timed flash missions
+             where one wrong letter ends the transmission.</p>
+        </div>
+      </div>
+
+      <div class="mission-card">
+        <img src="photos/1290x2796/1290x2796_0003_SS_Intercept.png" alt="Code Breaker" loading="lazy">
+        <div class="mission-card-body">
+          <h3>Code Breaker</h3>
+          <div class="mission-type">Intercept</div>
+          <p>An enemy transmission comes through &mdash; a single 5-letter word in Morse.
+             Listen carefully, decode what you hear, and crack the word
+             in 5 attempts or fewer.</p>
+        </div>
+      </div>
+
+      <div class="mission-card">
+        <img src="photos/1290x2796/1290x2796_0004_SS_EOD.png" alt="Bomb Disposal" loading="lazy">
+        <div class="mission-card-body">
+          <h3>Explosive Ordnance</h3>
+          <div class="mission-type">Bomb Disposal</div>
+          <p>Decode Morse clues to defuse a multi-stage bomb before time runs out.
+             Cut wires, press buttons, flip switches &mdash; each instruction
+             arrives as a coded signal. Wrong move costs you precious seconds.</p>
+        </div>
+      </div>
+
+      <div class="mission-card">
+        <img src="photos/1290x2796/1290x2796_0002_SS_Overflow.png" alt="Signal Overflow" loading="lazy">
+        <div class="mission-card-body">
+          <h3>Signal Overflow</h3>
+          <div class="mission-type">Survive</div>
+          <p>Incoming messages pile up on a typewriter faster than you can decode them.
+             Earn power-ups to stay alive, but the pace never stops accelerating.
+             How long can you hold the line before the signal overflows?</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ RANK PROGRESSION ══════════════════════ -->
+<section class="rank-section">
+  <div class="section-inner">
+    <div class="rank-layout">
+      <div class="rank-phone">
+        <img src="photos/1290x2796/1290x2796_0006_SS_ServiceR.png" alt="Service Record" loading="lazy">
+      </div>
+      <div class="rank-text">
+        <h2>Rise Through the Ranks</h2>
+        <p class="section-subtitle">21 ranks from Private to General</p>
+        <p>
+          Complete missions, earn XP, and climb the ranks.
+          Every promotion brings you one step closer to the top.
+        </p>
+        <ul class="rank-highlights">
+          <li><strong>Service Record</strong> &mdash; Track your accuracy, speed, and performance across every mode</li>
+          <li><strong>Daily Streak</strong> &mdash; Complete all modes each day to build an XP multiplier</li>
+          <li><strong>Enlisted to Officer</strong> &mdash; 9 enlisted grades + 12 officer ranks to conquer</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ SELLING POINTS ══════════════════════ -->
+<section class="selling-section">
+  <div class="section-inner" style="text-align:center;">
+    <h2>Why Morse Operator</h2>
+    <p class="section-subtitle">Built to teach. Designed to obsess over.</p>
+
+    <div class="selling-grid">
+      <div class="selling-card">
+        <span class="selling-icon" aria-hidden="true">-.-</span>
+        <h3>Morse Code</h3>
+        <p>Learn international Morse code &mdash; the same system used by militaries, ham radio operators, and aviators worldwide.</p>
+      </div>
+
+      <div class="selling-card">
+        <span class="selling-icon" aria-hidden="true">1944</span>
+        <h3>Authentic History</h3>
+        <p>Messages inspired by WWII Signal Corps, Royal Navy, RAF, and US Marine transmissions.</p>
+      </div>
+
+      <div class="selling-card">
+        <span class="selling-icon" aria-hidden="true">$0</span>
+        <h3>Completely Free</h3>
+        <p>No ads. No in-app purchases. No premium tiers. Every mode, every rank, every message &mdash; yours from day one.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ FINAL CTA ══════════════════════ -->
+<section class="final-cta">
+  <h2>Report for Duty</h2>
+  <p>Your enlistment papers are ready. Boot Camp starts now.</p>
+  <div class="cta-group">
+    <a class="app-badge" href="#">
+      <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store">
+    </a>
+    <span class="free-note">Free. No ads. No in-app purchases.</span>
+  </div>
+</section>
 
 <footer>
   <p>&copy; 2026 Morse Operator. All rights reserved.</p>
-  <p><a href="/privacy">Privacy Policy</a></p>
+  <p style="margin-top: 8px;"><a href="/privacy">Privacy Policy</a></p>
 </footer>
 
 </body>
